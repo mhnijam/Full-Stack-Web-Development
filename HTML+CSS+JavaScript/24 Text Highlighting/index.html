@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highlight Long Words</title>
+<style>
+  .highlight {
+    background-color: yellow;
+  }
+</style>
+</head>
+<body>
+
+<p id="myParagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, inventore aut! Totam itaque tempore voluptatibus dolor ducimus temporibus eum minima distinctio, doloremque adipisci officiis omnis ut. Odio aut excepturi neque dolor fugiat, itaque harum ipsa commodi voluptate hic saepe. Porro illo magni laboriosam nesciunt provident veniam quas a temporibus recusandae animi nisi repellendus nostrum sint cumque eaque iusto, dolorum mollitia, quo maiores corrupti odio? Pariatur doloribus veniam accusantium alias aperiam, totam ratione eligendi. Totam officiis atque, repellat unde aliquam impedit aperiam, illum debitis laboriosam eum consectetur tempore adipisci molestiae labore? Eaque doloremque molestias qui sunt veritatis consequuntur excepturi aspernatur nihil.</p>
+
+<script>
+function highlightLongWords() {
+  var paragraph = document.getElementById('myParagraph');
+  var words = paragraph.innerText.split(' ');
+  var newHTML = words.map(function(word) {
+    return word.length > 8 ? '<span class="highlight">' + word + '</span>' : word;
+  }).join(' ');
+  paragraph.innerHTML = newHTML;
+}
+
+highlightLongWords();
+</script>
+
+</body>
+</html>

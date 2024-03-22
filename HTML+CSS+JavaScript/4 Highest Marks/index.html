@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highest Marks Finder</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  #highestMark {
+    margin-top: 20px;
+    font-size: 20px;
+    color: green;
+  }
+</style>
+</head>
+<body>
+
+<h2>Highest Marks in Class</h2>
+
+<button onclick="findHighestMark()">Find Highest Mark</button>
+
+<div id="highestMark"></div>
+
+<script>
+  function findHighestMark() {
+    let marks = [76, 85, 65, 93, 81]; // Example marks
+    let highest = marks[0];
+
+    for (let i = 1; i < marks.length; i++) {
+      highest = (marks[i] > highest) ? marks[i] : highest;
+    }
+
+    document.getElementById('highestMark').textContent = 'The highest mark is: ' + highest;
+  }
+</script>
+
+</body>
+</html>

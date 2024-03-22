@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart Remove Duplicates</title>
+<style>
+  /* Add your CSS styling here */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .cart-item {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Your Shopping Cart</h2>
+<div id="cart-items">
+  <!-- Cart items will be added here -->
+</div>
+
+<button onclick="removeDuplicates()">Remove Duplicates</button>
+
+<script>
+  // Sample cart array with duplicates
+  let cart = ['Apple', 'Banana', 'Apple', 'Orange', 'Banana'];
+
+  // Function to display cart items
+  function displayCart() {
+    document.getElementById('cart-items').innerHTML = '';
+    cart.forEach(item => {
+      let div = document.createElement('div');
+      div.className = 'cart-item';
+      div.textContent = item;
+      document.getElementById('cart-items').appendChild(div);
+    });
+  }
+
+  // Function to remove duplicates
+  function removeDuplicates() {
+    cart = [...new Set(cart)];
+    displayCart();
+  }
+
+  // Initial display of cart items
+  displayCart();
+</script>
+
+</body>
+</html>

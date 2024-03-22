@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form Validation</title>
+<style>
+  body { 
+    font-family: Arial, sans-serif;
+    align-content: center;
+}
+  .message { font-weight: bold; padding: 5px; margin-top: 10px; }
+  .error { color: red; }
+  .success { color: green; }
+  
+  
+
+  .container {
+    margin: 0 auto;
+    width: 300px;
+    padding: 20px;
+  }
+
+  input[type=text], button {
+    width: 20%;
+    padding: 10px;
+    margin: 10px 0;
+    justify-content: center;
+  }
+
+  input[type=password], button {
+    width: 15%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    opacity: 0.8;
+  }
+</style>
+</head>
+<body>
+
+<form id="loginForm" onsubmit="return validateForm()">
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email" required>
+  <br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+  <br><br>
+  <button type="submit">Submit</button>
+  <p id="message" class="message"></p>
+</form>
+
+<script>
+function validateForm() {
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  var messageElement = document.getElementById('message');
+  
+  if(email.indexOf('@') === -1 || password.length < 8) {
+    messageElement.textContent = 'Invalid email or password!';
+    messageElement.className = 'message error';
+    return false;
+  } else {
+    messageElement.textContent = 'Valid email and password!';
+    messageElement.className = 'message success';
+    return true;
+  }
+}
+</script>
+
+</body>
+</html>

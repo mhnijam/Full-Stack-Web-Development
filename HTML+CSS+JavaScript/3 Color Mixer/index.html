@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Mixer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #result {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <h1>Color Mixer</h1>
+  <label for="color1">Color 1:</label>
+  <input type="text" id="color1" placeholder="Enter first color">
+  <label for="color2">Color 2:</label>
+  <input type="text" id="color2" placeholder="Enter second color">
+  <button onclick="mixColors()">Mix</button>
+  <div id="result"></div>
+
+  <script>
+    function mixColors() {
+      var color1 = document.getElementById('color1').value;
+      var color2 = document.getElementById('color2').value;
+      var combination = color1.toLowerCase() + color2.toLowerCase();
+      var resultText = '';
+
+      switch (combination) {
+        case 'redblue':
+        case 'bluered':
+          resultText = 'purple';
+          break;
+        case 'redyellow':
+        case 'yellowred':
+          resultText = 'orange';
+          break;
+        case 'blueyellow':
+        case 'yellowblue':
+          resultText = 'green';
+          break;
+        default:
+          resultText = 'Invalid color combination';
+      }
+
+      document.getElementById('result').textContent = resultText;
+    }
+  </script>
+</body>
+</html>

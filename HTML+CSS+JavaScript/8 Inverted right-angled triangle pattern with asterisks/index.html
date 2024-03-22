@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inverted Triangle Pattern</title>
+<style>
+  /* Add your CSS styling here */
+  .triangle-container {
+    font-family: monospace;
+    white-space: pre;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Inverted Right-Angled Triangle Pattern</h2>
+<div id="triangle-container" class="triangle-container"></div>
+<input type="number" id="rows-input" placeholder="Enter number of rows" />
+<button onclick="drawTriangle()">Draw Pattern</button>
+
+<script>
+  // Function to draw the inverted triangle pattern
+  function drawTriangle() {
+    const rows = document.getElementById('rows-input').value;
+    let pattern = '';
+    for (let i = rows; i > 0; i--) {
+      pattern += '*'.repeat(i) + '\\n';
+    }
+    document.getElementById('triangle-container').textContent = pattern;
+  }
+</script>
+
+</body>
+</html>

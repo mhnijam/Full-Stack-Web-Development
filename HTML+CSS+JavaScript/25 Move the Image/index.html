@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move the Image</title>
+<style>
+  #container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+  }
+  #movingImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <img src="/25 Move the Image/pic.jpg" id="movingImage" width="300" height="200">
+</div>
+
+<script>
+var img = document.getElementById('movingImage');
+var container = document.getElementById('container');
+
+var step = 10; // Change this value to increase or decrease the step size
+var positionX = container.offsetWidth / 2;
+var positionY = container.offsetHeight / 2;
+
+function updatePosition() {
+  img.style.left = positionX + 'px';
+  img.style.top = positionY + 'px';
+}
+
+document.addEventListener('keydown', function(event) {
+  switch(event.key) {
+    case 'ArrowUp':
+      positionY -= step;
+      break;
+    case 'ArrowDown':
+      positionY += step;
+      break;
+    case 'ArrowLeft':
+      positionX -= step;
+      break;
+    case 'ArrowRight':
+      positionX += step;
+      break;
+    default:
+      return; // Exit this handler for other keys
+  }
+  updatePosition();
+});
+
+updatePosition(); // Initial position update
+</script>
+
+</body>
+</html>

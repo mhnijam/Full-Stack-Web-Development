@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperature Converter</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+  .converter {
+    text-align: center;
+  }
+  input, button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="converter">
+  <h2>Celsius to Fahrenheit Converter</h2>
+  <input type="number" id="celsius" placeholder="Enter Celsius">
+  <button onclick="convert()">Convert</button>
+  <p id="fahrenheit"></p>
+</div>
+
+<script>
+function convert() {
+  var celsius = document.getElementById('celsius').value;
+  var fahrenheit = (celsius * 9/5) + 32;
+  document.getElementById('fahrenheit').innerText = `${fahrenheit} °F`;
+}
+</script>
+</body>
+</html>

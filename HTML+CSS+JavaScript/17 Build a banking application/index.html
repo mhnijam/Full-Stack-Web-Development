@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banking Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1em;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.5em;
+            font-size: 1em;
+        }
+        .result {
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Banking Application</h1>
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" min="0" step="0.01">
+        </div>
+        <button onclick="deposit()">Deposit</button>
+        <button onclick="withdraw()">Withdraw</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        let customer = {
+            name: 'John Doe',
+            balance: 1000,
+            deposit: function(amount) {
+                this.balance += amount;
+            },
+            withdraw: function(amount) {
+                if (amount <= this.balance) {
+                    this.balance -= amount;
+                } else {
+                    alert('Insufficient balance');
+                }
+            }
+        };
+
+        const deposit = () => {
+            let amount = document.getElementById('amount').value;
+            customer.deposit(Number(amount));
+            document.getElementById('result').innerHTML = 'Balance: ' + customer.balance.toFixed(2);
+        }
+
+        const withdraw = () => {
+            let amount = document.getElementById('amount').value;
+            customer.withdraw(Number(amount));
+            document.getElementById('result').innerHTML = 'Balance: ' + customer.balance.toFixed(2);
+        }
+    </script>
+</body>
+</html>

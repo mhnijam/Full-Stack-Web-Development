@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple To-Do App</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  #todoList { margin-top: 20px; }
+  .todo-item { background-color: #f9f9f9; border: 1px solid #ddd; padding: 10px; margin-bottom: 5px; }
+</style>
+</head>
+<body>
+
+<h2>My To-Do List</h2>
+<input type="text" id="todoInput" placeholder="Add new todo...">
+<button onclick="addTodo()">Add</button>
+
+<ul id="todoList">
+  <!-- Todo items will be listed here -->
+</ul>
+
+<script>
+function addTodo() {
+  var input = document.getElementById('todoInput');
+  var itemText = input.value.trim();
+  if(itemText !== '') {
+    var list = document.getElementById('todoList');
+    var listItem = document.createElement('li');
+    listItem.textContent = itemText;
+    listItem.className = 'todo-item';
+    list.appendChild(listItem);
+    input.value = ''; // Clear the input field
+  }
+}
+</script>
+
+</body>
+</html>

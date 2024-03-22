@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart Quantity Fix (Correct a bug)</title>
+<style>
+  /* Add your CSS styling here */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  #cart-quantities {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Cart Quantity Correction</h2>
+<button onclick="correctQuantities()">Correct Quantities</button>
+<div id="cart-quantities"></div>
+
+<script>
+  // Example cart array with quantities reduced to half
+  let cartQuantities = [0.5, 1, 1.5, 2, 2.5];
+
+  // Function to correct the quantities in the cart
+  function correctQuantities() {
+    cartQuantities = cartQuantities.map(quantity => quantity * 2);
+    displayCartQuantities();
+  }
+
+  // Function to display the corrected quantities
+  function displayCartQuantities() {
+    let content = 'Corrected Quantities: ' + cartQuantities.join(', ');
+    document.getElementById('cart-quantities').textContent = content;
+  }
+
+  // Initial display of cart quantities
+  displayCartQuantities();
+</script>
+
+</body>
+</html>

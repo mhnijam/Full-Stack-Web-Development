@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic List</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  #message { color: red; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<ol id="courseList">
+  <!-- Pre-existing list items will be here -->
+</ol>
+<button id="addItem">Add Item</button>
+<p id="message"></p>
+
+<script>
+// Pre-existing array of list items
+var listItems = [
+  'Introduction to JavaScript',
+  'Variables and Data Types',
+  'Functions and Scope',
+  'DOM Manipulation',
+  'Events and Event Handlers',
+  // Add more items as needed
+];
+var currentIndex = 0;
+
+document.getElementById('addItem').addEventListener('click', function() {
+  if(currentIndex < listItems.length) {
+    var listItem = document.createElement('li');
+    listItem.textContent = listItems[currentIndex];
+    document.getElementById('courseList').appendChild(listItem);
+    currentIndex++;
+  } else {
+    document.getElementById('message').textContent = 'All items have been added.';
+  }
+});
+</script>
+
+</body>
+</html>
